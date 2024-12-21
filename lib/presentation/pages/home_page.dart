@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../utils/routes/app_routes.dart';
+import '../../utils/app_text.dart';
+import '../widgets/button_navigation_bar.dart';
+import '../widgets/categories_list_view.dart';
+import '../widgets/category_list_explore.dart';
+import '../widgets/tab_bar.dart';
 import '../widgets/label_explore.dart';
 import '../widgets/search_button.dart';
 
@@ -14,125 +16,58 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const LabelExplore(),
+        toolbarHeight: 42.0,
       ),
-      body: Column(
+      body: ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: Text(
+                'Aspen',
+                style: AppText.font32,
+              ),
+            ),
+          ),
           SearchButton(),
-          SizedBox(
-            height: 75,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 7,
-                itemBuilder: (context, value) {
-                  return const Padding(
-                    padding: EdgeInsets.all(8),
-                    child: Text('Location'),
-                  );
-                }),
+          CategoryLocation(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Popular',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontFamily: 'montserrat'),
+                  ),
+                  Text(
+                    'See More',
+                    style: TextStyle(
+                        color: Color(0xff176FF2),
+                        fontSize: 12,
+                        fontFamily: 'montserrat'),
+                  ),
+                ]),
           ),
-          Column(
-            children: [
-              const Padding(
-                padding: EdgeInsets.all( 10),
-                child: Align(alignment: Alignment.topLeft,
-                    child: Text('Popular')),
-              ),
-              SizedBox(
-                height: 250,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 7,
-                    itemBuilder: (context, value) {
-                      return Container(
-                        width: 188,
-                        height: 240,
-                        child: Stack(
-                          children: [
-                            GestureDetector(
-                              onTap:(){
-                                GoRouter.of(context).push(AppRoutes.kDetails);
-                              },
-                              child: const Image(
-                                image: AssetImage(
-                                  'assets/images/first image place2.jpg',
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                            Positioned(
-                              bottom:38,
-                              child: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.blueGrey
-                                  ),
-                                  child: const Text(
-                                    'Alley Place',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ),
-                             Positioned(
-                               bottom:12,
-                               child: Padding(
-                                 padding: const EdgeInsets.all(16),
-                                 child: Row(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        color: Colors.blueGrey, ),
-                                      child: const Row(
-                                    children: [
-                                    Icon(Icons.star),
-                                    Text(
-                                      '4.1',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                 ),
-                                    ),
-                                  ],
-                                                             ),
-                               ),
-                             )
-                          ],
-                        ),
-                      );
-                    }),
-              ),
-            ],
+          CategoriesListView(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Recommended',
+              style: AppText.font18,
+            ),
           ),
-          const SizedBox(height: 12),
-        ],
-      ),
-      bottomNavigationBar: NavigationBar(
-        destinations: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.ac_unit_sharp),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.ac_unit_sharp),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.ac_unit_sharp),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.ac_unit_sharp),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.ac_unit_sharp),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: CategoryListExplore(),
           ),
         ],
       ),
+      bottomNavigationBar: ButtonNavigationBar(),
     );
   }
 }

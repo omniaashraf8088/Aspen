@@ -1,36 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../utils/app_text.dart';
 
 class LabelExplore extends StatelessWidget {
   const LabelExplore({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       children: [
-        AppBar(
-          automaticallyImplyLeading: false,
-          title: Column(
-              children: [
-                const Row(
-                  children: [
-                    Text('Explore',style: TextStyle(fontSize: 14,fontFamily: 'montserrat',
-                    ),),
-                    Spacer(),
-                    Icon(Icons.location_pin),
-                    Text('Aspen,',style: TextStyle(fontSize: 14,fontFamily: 'montserrat',),),
-                    Text('USA',style: TextStyle(fontSize: 14,fontFamily: 'montserrat',),),
-                    Icon(Icons.arrow_drop_down),
-                  ],
-                ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  child: const Text('Aspen',style: TextStyle(fontSize: 32,fontFamily: 'montserrat',),),
-                ),
-              ]
+        Expanded(child: Text('Explore', style: AppText.font14)),
+        SvgPicture.asset(
+          'assets/images/icons/location.svg',
+          width: 20,
+          height: 20,
+        ),
+        Text(
+          'Aspen,',
+          style: AppText.font12,
+        ),
+        const Text(
+          'USA',
+          style: AppText.font12,
+        ),
+        SvgPicture.asset(
+          'assets/images/icons/arrow_down.svg',
+          width: 18,
+          height: 18,
+          colorFilter: ColorFilter.mode(
+            Color(0xff196EEE),
+            BlendMode.srcIn,
           ),
-        )
+        ),
       ],
-
     );
   }
 }

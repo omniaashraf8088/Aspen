@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "5844478647",
+    "project_id": "aspen-travel-app-6c17f",
+    "storage_bucket": "aspen-travel-app-6c17f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5844478647:android:5304c31d92c7634b6fbb32",
+        "android_client_info": {
+          "package_name": "com.example.aspen_travel_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKjE5QRyHnVoTqn_VB3aFP_eA7GTuyfX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
