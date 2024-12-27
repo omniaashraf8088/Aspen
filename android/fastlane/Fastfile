@@ -16,7 +16,7 @@
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
+  desc "lane for Android Firebase App Distribution"
   lane :firebase_distribution do
       sh:"flutter clean",
       sh:"flutter build apk --release --flavor Production --target lib/main_Production.dart --no-tree-shake-icons"
@@ -24,11 +24,11 @@ platform :android do
           app: "1:5844478647:android:5304c31d92c7634b6fbb32",
           firebase_cli_token:ENV["FIREBASE_CLI_TOKEN"],
           android_artifact_type:"APK",
-          android_artifact_path:"build/app/outputs/flutter-apk/app-release.apk",
+          android_artifact_path:"../build/app/outputs/flutter-apk/app-release.apk",
          testers: "omnia52481019@gmail.com",
-         release_note:"First firebase_app_distribution",
+         release_note:"Testing something with Github Action, trying to push directly from master",
+
         )
-    gradle(task: "test")
   end
 
 end
