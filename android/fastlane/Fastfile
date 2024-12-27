@@ -1,34 +1,17 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
+  desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
-      sh:"flutter clean",
-      sh:"flutter build apk --release --flavor Production --target lib/main_Production.dart --no-tree-shake-icons"
-      firebase_app_distribution(
-          app: "1:5844478647:android:5304c31d92c7634b6fbb32",
-          firebase_cli_token:ENV["FIREBASE_CLI_TOKEN"],
-          android_artifact_type:"APK",
-          android_artifact_path:"build/app/outputs/flutter-apk/app-release.apk",
-         testers: "omnia52481019@gmail.com",
-         release_note:"First firebase_app_distribution",
-        )
-    gradle(task: "test")
+    sh "flutter clean"
+    sh "flutter build apk --release --no-tree-shake-icons"
+    firebase_app_distribution(
+        app: "1:5844478647:android:5304c31d92c7634b6fbb32",
+        firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+        android_artifact_type: "APK",
+        android_artifact_path: "../build/app/outputs/flutter-apk/app-release.apk",
+        testers: "omnia52481019@gmail.com",
+        release_notes: "Testing something with GitHub Actions, trying to push directly from master branch",
+  )
   end
-
 end

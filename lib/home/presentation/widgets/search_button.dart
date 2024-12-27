@@ -1,5 +1,6 @@
-import 'package:aspen_travel_app/utils/app_text.dart';
 import 'package:flutter/material.dart';
+
+import '../../utils/app_text.dart';
 
 class SearchButton extends StatelessWidget {
   const SearchButton({super.key});
