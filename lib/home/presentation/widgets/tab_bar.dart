@@ -1,4 +1,4 @@
-import 'package:aspen_travel_app/presentation/widgets/tab_details.dart';
+import 'package:aspen_travel_app/home/presentation/widgets/tab_details.dart';
 import 'package:flutter/material.dart';
 
 

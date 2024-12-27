@@ -1,4 +1,3 @@
-import 'package:aspen_travel_app/utils/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

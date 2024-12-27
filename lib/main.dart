@@ -1,6 +1,5 @@
-
-import 'package:aspen_travel_app/utils/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'home/utils/routes/app_routes.dart';
 
 void main(){
   runApp(const AspenTravel());

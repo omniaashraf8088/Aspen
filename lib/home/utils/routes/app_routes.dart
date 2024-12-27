@@ -1,9 +1,10 @@
-import 'package:aspen_travel_app/presentation/pages/details_page.dart';
-import 'package:aspen_travel_app/presentation/pages/home_page.dart';
-import 'package:aspen_travel_app/presentation/pages/splash_page.dart';
-import 'package:aspen_travel_app/presentation/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../presentation/pages/details_page.dart';
+import '../../presentation/pages/home_page.dart';
+import '../../presentation/pages/splash_page.dart';
+import '../../presentation/screens/profile_screen.dart';
 
 class AppRoutes{
    static const kSplash='/';
